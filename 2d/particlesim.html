@@ -12,21 +12,12 @@
         }
         
         body {
+            padding: 10px;
             display: flex;
+            
             justify-content: center;
             align-items: center;
-        }
-        h1 {
-            font-family: Arial, Helvetica, sans-serif;
-            display: flex;
-            position:absolute;
-            top: 120px;
-            justify-content: center;
-            font-size: 2.5rem !important;
-            padding-top: 3rem;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.03);
-            cursor: default;
+            background-image: url(img/img1.png);
         }
 
         .lil-gui {
@@ -40,16 +31,16 @@
             --widget-border-radius: 2px;
             --display: flex;
             --border-radius: 100%;
-
         }
-        #canvas {
-            
+
+        #canvas {    
             border: #59CBE8;
             border-style: solid;
-            border-radius: 5px;
+            border-radius: 10px;
             border-width: 5;
             outline: none;  /* because of the 'tabindex' focus trick */
-            background-color: var(--canvas-bg-color);
+            background-color: #000;
+            z-index: 2;
         }
     </style>
 
@@ -58,7 +49,7 @@
 
 <body>
     <!-- 'tabindex' is a trick to make the canvas capture key events -->
-    <h1>Particles of Life</h1>
+    
     <canvas id="canvas" tabindex="1"></canvas>
     
     <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.17"></script>
@@ -72,7 +63,7 @@
             seed: 91651088029,
             fps: 0,
             atoms: {
-                count: 500,  // Per Color
+                count: 150,  // Per Color
                 radius: 1,
             },
             drawings: {  // Drawing options can be expensive on performance
@@ -102,12 +93,12 @@
             radii: {},
             radii2Array: [],
             colors: [],
-            numColors: 4,
+            numColors: 8,
             time_scale: 1.0,
             viscosity: 0.7,  // speed-dampening (can be >1 !)
             gravity: 0.0,  // pulling downward
             pulseDuration: 10,
-            wallRepel: 40,
+            wallRepel: 10,
             reset: () => {
                 randomAtoms(settings.atoms.count, true)
             },
@@ -121,8 +112,9 @@
                 updateGUIDisplay()
             },
             gui: null,
+            
         }
-
+        
         const setupClicks = () => {
             canvas.addEventListener('click',
                 (e) => {
@@ -158,6 +150,7 @@
         const updateGUIDisplay = () => {
             console.log('gui', settings.gui)
             settings.gui.destroy()
+            
             setupGUI()
         }
         Object.defineProperty(String.prototype, 'capitalise', {
@@ -333,10 +326,10 @@
                 settings.colors.push(predefinedColors[i]);
             }
         }
-
+        
         // Run Application
         loadSeedFromUrl()
-
+        
         // Canvas
         const canvas = document.getElementById('canvas');
         const m = canvas.getContext("2d");
@@ -642,7 +635,11 @@
             if (settings.explore) exploreParameters();
         }
 
+        //dropshadow effect
 
+        var sAtoms = document.getElementById("canvas");
+
+        sAtoms.setAttribute("style", "-webkit-filter: drop-shadow(2px 0px 10px #fff);")
         
         // Download DataURL
         function dataURL_downloader(dataURL, name = `particle_life_${settings.seed}`) {
