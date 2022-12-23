@@ -17,7 +17,7 @@
             
             justify-content: center;
             align-items: center;
-            background-image: url(img/img1.png);
+            background-image: url(img/img6.png);
         }
 
         .lil-gui {
@@ -39,8 +39,10 @@
             border-radius: 10px;
             border-width: 5;
             outline: none;  /* because of the 'tabindex' focus trick */
-            background-color: #000;
+            background-color: rgba(0, 0, 0, 0);
+            
             z-index: 2;
+            
         }
     </style>
 
@@ -55,10 +57,10 @@
     <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.17"></script>
 
     <script>
-        const maxRadius = 200;
+        const maxRadius = 300;
         const maxClusters = 20;
         const minClusterSize = 50;
-        const predefinedColors = ['blue', 'red', 'white', 'cyan', 'magenta', 'azure', 'teal', 'pink', 'orange', 'yellow', 'purple', 'crimson', "fuchsia", "maroon", "ivory", "lightgrey"];
+        const predefinedColors = ['blue', 'red', 'white', 'cyan', 'magenta', 'azure', 'teal', 'pink', 'indigo', 'yellow', 'purple', 'crimson', "fuchsia", "maroon", "ivory", "lightgrey"];
         const settings = {
             seed: 91651088029,
             fps: 0,
@@ -70,7 +72,8 @@
                 lines: false,   // draw lines between atoms that arr effecting each other
                 circle: false,  // draw atoms as circles
                 clusters: false,
-                background_color: '#191919', // Background color
+                background_color: '#030303', // Background color
+               
             },
             export: {
                 // Export a Screenshot image
