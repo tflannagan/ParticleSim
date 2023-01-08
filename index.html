@@ -11,6 +11,13 @@
             --canvas-bg-color: rgba(0, 0, 0, 0); /* transparent */
         }
         
+        h1{
+            background-color:black;
+            color: rgb(255, 255, 255);
+            margin: 0;
+
+        }
+
         body {
             padding: 10px;
             display: flex;
@@ -20,6 +27,38 @@
             background-image: url(img/img7.png);
         }
 
+        .side-container {
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        .ad-box {
+            display: none;
+            background-color: rgb(255, 254, 254);
+            min-width: 5em;
+            min-height: 5em;
+            margin: 1rem 0.5rem 1rem 1rem;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .live-chat {
+            display:none;
+            background-color: #fff;
+            min-width: 10em;
+            min-height: 25em;
+            margin: 1rem 0.5rem 1rem 1rem;
+        }
+
+       
+        img {
+            display: none;
+           width: 5em;
+           height: 5em; 
+        }
+       
         .lil-gui {
             --title-background-color:  rgb(92, 92, 92);
             --background-color: rgb(106, 106, 106);
@@ -38,7 +77,7 @@
             border: #59CBE8;
             border-style: solid;
             border-radius: 10px;
-            border-width: 5;
+            border-width: 3;
             outline: none;  /* because of the 'tabindex' focus trick */
             background-color: rgba(0, 0, 0, 0);
             
@@ -52,7 +91,13 @@
 
 <body>
     <!-- 'tabindex' is a trick to make the canvas capture key events -->
-    
+    <div class="side-container">
+    <div class="ad-box">
+        <h1>Collision Chaos</h1>
+        <img src="./img/ad-cover.png" alt="img" />
+    </div>
+    <div class="live-chat"></div>
+    </div>
     <canvas id="canvas" tabindex="1"></canvas>
     
     <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.17"></script>
@@ -61,7 +106,7 @@
         const maxRadius = 300;
         const maxClusters = 20;
         const minClusterSize = 50;
-        const predefinedColors = ['blue', 'red', 'white', 'cyan', 'magenta', 'azure', 'lavender', 'pink', 'indigo', 'violet', 'purple', 'crimson', "fuchsia", "maroon", "ivory", "lightgrey"];
+        const predefinedColors = ['blue', 'red', 'white', 'cyan', 'magenta', 'purple', 'lavender', 'pink', 'indigo', 'violet', 'silver', 'crimson', "fuchsia", "maroon", "ivory", "lightgrey"];
         const settings = {
             seed: 91651088029,
             fps: 0,
@@ -156,6 +201,7 @@
             settings.gui.destroy()
             
             setupGUI()
+            
         }
         Object.defineProperty(String.prototype, 'capitalise', {
             value: function() {
@@ -462,7 +508,8 @@
 
         // Canvas Dimensions
         updateCanvasDimensions()
-
+        
+        
 
         // Params for click-based pulse event
         var pulse = 0;
@@ -584,6 +631,7 @@
         setupClicks()
         setupKeys()
         setupGUI()
+        
 
         console.log('settings', settings)
 
