@@ -1,10 +1,12 @@
 <html>
-<title>Particle Sim</title>
+<title>Collision Chaos</title>
 
 <head>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
     <style>
         :root {
             color-scheme: dark;
@@ -14,76 +16,95 @@
         h1{
             background-color:black;
             color: rgb(255, 255, 255);
-            margin: 0;
-
+            margin: 5rem 0.5rem 0.5rem 0.5rem;
+            border-radius: 10px;
         }
 
         body {
-            padding: 10px;
+            padding: 5px;
             display: flex;
-            
+            font-family: 'Orbitron', sans-serif;
             justify-content: center;
             align-items: center;
             background-image: url(img/img7.png);
+            
         }
 
         .side-container {
-            display: flex;
+            display: none;
             flex-direction: column;
-            
+            margin: 0rem 0rem 0rem 0.5rem;
+            border-radius: 15px;
         }
 
         .ad-box {
-            display: none;
+           
             background-color: rgb(255, 254, 254);
-            min-width: 5em;
-            min-height: 5em;
-            margin: 1rem 0.5rem 1rem 1rem;
+            min-width: 7em;
+            min-height: 25em;
+            margin: 0rem 0rem 0.5rem 0rem; 
             justify-content: center;
             align-items: center;
             text-align: center;
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 15px;
+            box-shadow:  5px 5px 4px #3c3c3c,
+            -5px -5px 4px #3f3f3f;
         }
 
         .live-chat {
-            display:none;
-            background-color: #fff;
+            display: none;
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 15px;
+            background-color: rgb(0, 0, 0);
             min-width: 10em;
-            min-height: 25em;
-            margin: 1rem 0.5rem 1rem 1rem;
+            min-height: 33em;
+            margin: 1rem 0rem 0rem 0rem;
+            box-shadow:  5px 5px 4px #3c3c3c,
+                        -5px -5px 4px #525252;
         }
-
+        .image {
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 15px;
+        }
        
         img {
-            display: none;
-           width: 5em;
-           height: 5em; 
+            padding: 5px; 
+           width: 10em;
+           height: 10em; 
         }
        
         .lil-gui {
-            --title-background-color:  rgb(92, 92, 92);
-            --background-color: rgb(106, 106, 106);
+            --title-background-color:  rgba(255, 255, 255, 0);
+            --background-color: rgba(25, 25, 25, 0.073);
             --color: rgb(255, 255, 255)
 	        --widget-color: rgb(155, 228, 255);
+            --text-color: rgba(255, 255, 255, 0.844);
+            --title-text-color: rgba(255, 255, 255, 0.032);
 	        --padding: 2px;
-            --width:250px;
+            --width:30em;
             --name-width: 30%;
-            --widget-border-radius: 2px;
+            --widget-border-radius: 5px;
             --display: flex;
+            --font-family: 'Orbitron', sans-serif;
+            --spacing: 4;
             
-            --border-radius: 100%;
+            
         }
 
         #canvas {    
-            border: #59CBE8;
+            border: #292929;
             border-style: solid;
             border-radius: 10px;
             border-width: 3;
             outline: none;  /* because of the 'tabindex' focus trick */
             background-color: rgba(0, 0, 0, 0);
-            
+            margin: 0rem 0.5rem 0.5rem 0.5rem;
             z-index: 2;
             
         }
+
+       
     </style>
 
     
@@ -94,7 +115,7 @@
     <div class="side-container">
     <div class="ad-box">
         <h1>Collision Chaos</h1>
-        <img src="./img/ad-cover.png" alt="img" />
+        <img class="image" src="./img/img9.png" alt="img" />
     </div>
     <div class="live-chat"></div>
     </div>
