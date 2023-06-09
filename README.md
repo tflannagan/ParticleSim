@@ -20,6 +20,7 @@ This simulator is adapted by [Ty Flannagan](https://www.tyflannagan.tech/), a so
 
 This project is built with:
 
+- ReactJS
 - HTML5
 - ES6
 - CSS3
